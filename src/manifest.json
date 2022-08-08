@@ -1,0 +1,12 @@
+{
+    "name": "MotifY",
+    "version": "0.1.0",
+    "description": "Reminder notifications in your browser",
+    "permissions": ["storage", "tabs"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["Content.js"]
+        }
+    ]
+}
