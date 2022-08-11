@@ -35,6 +35,14 @@ const Header = styled.div`
   -moz-border-radius: 10px 10px 0 0;
 `
 
+const Title = styled.h1`
+  font-size: 1.5vh;
+  font-family: monospace;
+  float: left;
+  margin-left: 10px;
+  color: #eeeeee;
+`
+
 const StyledButton = styled.button`
   height: 30px;
   width: 30px;
@@ -69,12 +77,13 @@ const Notification = () => {
       <Container>
         <Modal>
           <Header>
+            <Title>
+              Hello
+            </Title>
             <StyledButton>&#10006;</StyledButton>
           </Header>
           <StyledTextArea>
-            <p>
-              Hello
-            </p>
+            Hello
           </StyledTextArea>
         </Modal>
       </Container>
