@@ -2,7 +2,7 @@
   "short_name": "MotifY",
   "name": "Motify",
   "version": "1.0.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Chrome extension to remind users via notifications",
   "permissions": ["storage"],
   "content_scripts": [
