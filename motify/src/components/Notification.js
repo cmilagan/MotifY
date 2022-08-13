@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"
+import "../App.css"
 
 import styled from "styled-components"
 import { ShadowRoot } from "../utils/ShadowRoot";
@@ -11,19 +11,14 @@ import { ShadowRoot } from "../utils/ShadowRoot";
  * #50C878 - Emerald Green
  */
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  background:rgba(0,0,0,0.2);
-`
-
 const Modal = styled.div`
-  z-index: 2;
+  z-index: 1000 !important;
   border: 1px solid grey;
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -12vh;
+  margin-left: -15vw;
   background: white;
   border-radius: 10px;
   overflow: hidden;
@@ -75,21 +70,17 @@ const Notification = () => {
 
   return (
     <ShadowRoot>
-      <div>
-        <Container>
-          <Modal>
-            <Header>
-              <Title>
-                Hello
-              </Title>
-              <StyledButton>&#10006;</StyledButton>
-            </Header>
-            <StyledTextArea>
-              Hello
-            </StyledTextArea>
-          </Modal>
-        </Container>
-      </div>
+      <Modal>
+        <Header>
+          <Title>
+            Hello
+          </Title>
+          <StyledButton>&#10006;</StyledButton>
+        </Header>
+        <StyledTextArea>
+          Hello
+        </StyledTextArea>
+      </Modal>
     </ShadowRoot>
   );
 }
