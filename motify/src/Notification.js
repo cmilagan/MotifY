@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css"
 
 import styled from "styled-components"
+import { ShadowRoot } from "./ShadowRoot";
 
 /** Color Palette
  * #363636 - Charcoal black
@@ -73,21 +74,23 @@ const Notification = () => {
   const [notifications, setNotifications] = useState([]);
 
   return (
-    <div>
-      <Container>
-        <Modal>
-          <Header>
-            <Title>
+    <ShadowRoot>
+      <div>
+        <Container>
+          <Modal>
+            <Header>
+              <Title>
+                Hello
+              </Title>
+              <StyledButton>&#10006;</StyledButton>
+            </Header>
+            <StyledTextArea>
               Hello
-            </Title>
-            <StyledButton>&#10006;</StyledButton>
-          </Header>
-          <StyledTextArea>
-            Hello
-          </StyledTextArea>
-        </Modal>
-      </Container>
-    </div>
+            </StyledTextArea>
+          </Modal>
+        </Container>
+      </div>
+    </ShadowRoot>
   );
 }
 
