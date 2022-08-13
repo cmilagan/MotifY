@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css"
 
 import styled from "styled-components"
-import { ShadowRoot } from "./ShadowRoot";
+import { ShadowRoot } from "../utils/ShadowRoot";
 
 /** Color Palette
  * #363636 - Charcoal black

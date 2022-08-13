@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Notification from './Notification';
+import Notification from './components/Notification';
 import reportWebVitals from './reportWebVitals';
 
 const insertionPoint = document.createElement("div");
