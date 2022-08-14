@@ -85,7 +85,7 @@ const Notification = () => {
   useEffect(() => {
     if (!localMode) {
       notifications.length > 0
-        ? chrome.storage.local.set({ [url]: notes })
+        ? chrome.storage.local.set({ [url]: notifications })
         : chrome.storage.local.remove(url);
     }
   }, [notifications])
