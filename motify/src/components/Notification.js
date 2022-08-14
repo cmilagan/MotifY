@@ -70,6 +70,7 @@ const StyledTextArea = styled.div`
 
 const Notification = () => {
   const [notifications, setNotifications] = useState([]);
+  const [closed, setClosed] = useState(false);
   const url = window.location.href;
 
   // get Notifications if they're there
@@ -91,17 +92,19 @@ const Notification = () => {
   }, [notifications])
   return (
     <ShadowRoot>
-      <Modal>
-        <Header>
-          <Title>
+      {!closed &&
+        <Modal>
+          <Header>
+            <Title>
+              Hello
+            </Title>
+            <StyledButton onClick={() => {setClosed(true)}}>&#10006;</StyledButton>
+          </Header>
+          <StyledTextArea>
             Hello
-          </Title>
-          <StyledButton>&#10006;</StyledButton>
-        </Header>
-        <StyledTextArea>
-          Hello
-        </StyledTextArea>
-      </Modal>
+          </StyledTextArea>
+        </Modal>      
+      }
     </ShadowRoot>
   );
 }
