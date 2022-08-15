@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Notification from './components/Notification';
+import Notification from './tabs/Notification';
 
-import { Popup } from './components/Popup';
+import { Popup } from './tabs/Popup';
 
 const popupRoot = document.getElementById("popup-root");
 

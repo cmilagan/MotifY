@@ -3,6 +3,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components"
 
 import { localMode } from "../utils/constants";
+import Avatar from "../components/avatar";
+import { Container } from "../components/container";
+import { Title } from "../components/title";
+import { Header } from "../components/header";
+
 
 export const Popup = () => {
   const [notifications, setNotifications] = useState([]);
@@ -17,8 +22,15 @@ export const Popup = () => {
   }, []);
 
   return (
-    <div>
-      <h3>Hello This is your notifications</h3>
-    </div>
+    <Container>
+      <Header>
+        <Avatar
+          imageUrl="https://freeiconshop.com/wp-content/uploads/edd/notification-flat.png"
+          username="motify"
+          size="md"
+        />
+        <Title>Notifications</Title>
+      </Header>
+    </Container>
   )
 }
