@@ -1,10 +1,20 @@
-import styled from "styled-components";
-import { rem } from "polished";
+import React from "react";
+import PropTypes from "prop-types";
 
-export const Title = styled.h1`
-  font-size: 25px;
-  font-family: monospace;
-  float: left;
-  margin-left: 10px;
-  color: #eeeeee;
-`;
+import Style from "./styles";
+
+const Title = ({size, children}) => (
+  <Style.Wrapper size={size}>
+    {children}
+  </Style.Wrapper>
+)
+
+Title.defaultProps = {
+  size: "md"
+};
+
+Title.propTypes = {
+  size: PropTypes.oneOf(["sm", "md", "lg"])
+};
+
+export default Title;

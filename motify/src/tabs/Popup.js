@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { localMode } from "../utils/constants";
 import Avatar from "../components/avatar";
 import { Container } from "../components/container";
-import { Title } from "../components/title";
+import Title from "../components/title";
 import Header from "../components/header";
 
 
@@ -22,7 +22,7 @@ export const Popup = () => {
   }, []);
 
   return (
-    <Container>
+    <div>
       <Header size="lg">
         <Avatar
           imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
@@ -31,8 +31,10 @@ export const Popup = () => {
         />
       </Header>
       <Header size="md">
-        <Title>Notifications</Title>
+        <Title size="md">
+          Notifications
+        </Title>
       </Header>
-    </Container>
+    </div>
   )
 }
