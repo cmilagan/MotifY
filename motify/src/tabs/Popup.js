@@ -6,7 +6,7 @@ import { localMode } from "../utils/constants";
 import Avatar from "../components/avatar";
 import { Container } from "../components/container";
 import { Title } from "../components/title";
-import { Header } from "../components/header";
+import Header from "../components/header";
 
 
 export const Popup = () => {
@@ -23,12 +23,14 @@ export const Popup = () => {
 
   return (
     <Container>
-      <Header>
+      <Header size="lg">
         <Avatar
-          imageUrl="https://freeiconshop.com/wp-content/uploads/edd/notification-flat.png"
+          imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
           username="motify"
           size="md"
         />
+      </Header>
+      <Header size="md">
         <Title>Notifications</Title>
       </Header>
     </Container>

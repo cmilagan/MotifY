@@ -1,12 +1,20 @@
-import styled from "styled-components";
-import { rem } from "polished";
+import React from "react";
+import PropTypes from "prop-types";
 
-export const Header = styled.div`
-  height: 40px;
-  width: 100%;
-  background-color: #363636;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 2px solid darkgrey;
-`;
+import Style from "./styles";
+
+const Header = ({size, children}) => (
+  <Style.Wrapper size={size}>
+    {children}
+  </Style.Wrapper>
+)
+
+Header.defaultProps = {
+  size: "md"
+};
+
+Header.propTypes = {
+  size: PropTypes.oneOf(["sm", "md", "lg"])
+};
+
+export default Header;
