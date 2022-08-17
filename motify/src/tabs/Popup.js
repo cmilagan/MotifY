@@ -7,6 +7,10 @@ import Avatar from "../components/avatar";
 import { Container } from "../components/container";
 import Title from "../components/title";
 import Header from "../components/header";
+import { Footer } from "../components/footer";
+import StyledButton from "../components/button";
+
+const popupRoot = document.getElementById("popup-root");
 
 
 export const Popup = () => {
@@ -21,6 +25,10 @@ export const Popup = () => {
     }
   }, []);
 
+  const closeTab = () => {
+    document.elementFromPoint(0, 1).click();
+  };
+
   return (
     <div>
       <Header size="lg">
@@ -29,12 +37,28 @@ export const Popup = () => {
           username="motify"
           size="md"
         />
+        <StyledButton onClick={() => {closeTab()}}>
+          &#9587;
+        </StyledButton>
       </Header>
       <Header size="md">
         <Title size="md">
           Notifications
         </Title>
       </Header>
+      <Container>
+        <Title size="sm">
+          Hello
+        </Title>
+      </Container>
+      <Footer>
+        <StyledButton size="lg">
+          &#x2302;
+        </StyledButton>
+        <StyledButton size="lg">
+          &#43;
+        </StyledButton>
+      </Footer>
     </div>
   )
 }

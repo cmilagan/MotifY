@@ -53,6 +53,7 @@ const StyledButton = styled.button`
   color: white;
   &:hover {
     cursor: pointer;
+    opacity: 0.5;
   }
 `
 const StyledTextArea = styled.div`
