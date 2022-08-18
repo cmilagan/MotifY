@@ -37,6 +37,7 @@ const Wrapper = styled.button`
   width: ${props => size(props.size)};
   border: none;
   background-color: #363636;
+  font-size: 30px;
   float: right;
   text-shadow: 1px 1px 1px lightgrey;
   color: white;
