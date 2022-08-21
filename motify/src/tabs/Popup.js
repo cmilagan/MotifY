@@ -9,6 +9,7 @@ import Title from "../components/title";
 import Header from "../components/header";
 import { Footer } from "../components/footer";
 import StyledButton from "../components/button";
+import Item from "../components/item";
 
 export const Popup = () => {
   const [notifications, setNotifications] = useState([]);
@@ -45,9 +46,7 @@ export const Popup = () => {
         </Title>
       </Header>
       <Container>
-        <Title size="sm">
-          Hello
-        </Title>
+        <Item title="Workout" notification="Get off your chair now!" />
       </Container>
       <Footer>
         <StyledButton size="lg">
