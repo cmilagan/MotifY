@@ -21,7 +21,7 @@ const size = size => {
   }
 };
 
-const Wrapper = styled.h1`
+const Wrapper = styled.div`
   font-size: ${props => size(props.size)};
   font-family: monospace;
   float: left;

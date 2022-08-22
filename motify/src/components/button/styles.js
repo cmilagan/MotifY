@@ -35,12 +35,14 @@ const Wrapper = styled.button`
   ${removeDefaultButton}
   height: ${props => size(props.size)};
   width: ${props => size(props.size)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: #363636;
-  font-size: 30px;
   float: right;
   text-shadow: 1px 1px 1px lightgrey;
-  color: white;
+  color: ${props => props.color};
   &:hover {
     cursor: pointer;
     opacity: 0.5;

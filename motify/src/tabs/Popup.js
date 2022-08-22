@@ -37,7 +37,9 @@ export const Popup = () => {
           size="md"
         />
         <StyledButton size="lg" onClick={() => {closeTab()}}>
-          x
+          <Title size="lg">
+            x
+          </Title>
         </StyledButton>
       </Header>
       <Header size="md">
@@ -47,13 +49,34 @@ export const Popup = () => {
       </Header>
       <Container>
         <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+        <Item title="Workout" notification="Get off your chair now!" />
+
       </Container>
       <Footer>
         <StyledButton size="lg">
-          &#x2302;
+          <Title size="lg">
+            &#x2302;
+          </Title>
         </StyledButton>
         <StyledButton size="lg">
-          &#43;
+          <Title size="lg">
+            &#43;
+          </Title>
         </StyledButton>
       </Footer>
     </div>

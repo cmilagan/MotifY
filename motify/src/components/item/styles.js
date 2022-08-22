@@ -11,16 +11,27 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: red;
+  color: #eeeeee;
+  > * {
+    margin: 5px;
+  }
 `;
 
 const ColorBlock = styled.div`
   width: 3%;
   height: 40px;
-  background-color: ${props => props.colour};
+  background-color: ${props => props.color};
+`
+
+const ButtonContainer = styled.div`
+  > * {
+    margin-left: 10px;
+  }
 `
 
 export default {
   Wrapper,
-  Container
+  Container,
+  ColorBlock,
+  ButtonContainer
 };

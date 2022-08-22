@@ -1,25 +1,37 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
+import Title from "../title";
 import Style from "./styles";
+import StyledButton from "../button";
+
+import { FaEdit, FaTrashAlt  } from "react-icons/fa";
 
 const Item = ({title, color}) => (
   <Style.Wrapper>
-    <Style.ColorBlock color={color} />
+    <Style.ColorBlock color={color}/>
     <Style.Container>
-      {title}
-      {title}
+      <Title size="sm">
+        {title}
+      </Title>
+      <Style.ButtonContainer>
+        <StyledButton size="sm" color="#ff1818">
+          <FaTrashAlt />
+        </StyledButton>
+        <StyledButton size="sm">
+          <FaEdit />
+        </StyledButton>
+      </Style.ButtonContainer>
     </Style.Container>
   </Style.Wrapper>
 )
 
 Item.defaultProps = {
-  color: "#ff8080"
+  color: "#00B7EB"
 };
 
 Item.propTypes = {
   title: PropTypes.string.isRequired,
-  colour: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
   notification: PropTypes.string,
 };
 
