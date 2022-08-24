@@ -1,8 +1,7 @@
 /* global chrome */
 import React, { useState, useEffect } from "react";
-import styled from "styled-components"
 
-import { localMode } from "../utils/constants";
+import { localMode, HOME_TAB, CREATE_TAB } from "../utils/constants";
 import Avatar from "../components/avatar";
 import { Container } from "../components/container";
 import Title from "../components/title";
@@ -10,23 +9,10 @@ import Header from "../components/header";
 import { Footer } from "../components/footer";
 import StyledButton from "../components/button";
 import Item from "../components/item";
+import { Home } from "./Home";
 
 export const Popup = () => {
-  const [notifications, setNotifications] = useState([]);
-
-  // get notifications to display in popup.html
-  useEffect(() => {
-    if(!localMode) {
-      chrome.storage.local.get((items) => {
-        setNotifications(items);
-      })
-    }
-  }, []);
-
-  const closeTab = () => {
-    console.log("hello")
-    window.close();
-  };
+  const [tab, setTab] = useState(HOME_TAB);
 
   return (
     <div>
@@ -36,44 +22,23 @@ export const Popup = () => {
           username="motify"
           size="md"
         />
-        <StyledButton size="lg" onClick={() => {closeTab()}}>
+        <StyledButton size="lg" onClick={() => {}}>
           <Title size="lg">
             x
           </Title>
         </StyledButton>
       </Header>
-      <Header size="md">
-        <Title size="md">
-          Notifications
-        </Title>
-      </Header>
-      <Container>
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-
-      </Container>
+      {tab === 1
+        ? <Home />
+        : <div>hi</div>
+      }
       <Footer>
-        <StyledButton size="lg">
+        <StyledButton size="lg" onClick={() => {setTab(HOME_TAB);}}>
           <Title size="lg">
             &#x2302;
           </Title>
         </StyledButton>
-        <StyledButton size="lg">
+        <StyledButton size="lg" onClick={() => {setTab(CREATE_TAB);}}>
           <Title size="lg">
             &#43;
           </Title>
