@@ -1,13 +1,24 @@
-import styled from "styled-components";
-import { rem } from "polished";
+import React from "react";
+import PropTypes from "prop-types";
 
-export const Stack = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: ${rem("64px")} 0;
+import Style from "./styles";
 
-  > div {
-    margin: 0 ${rem("24px")};
-  }
-`;
+const Stack = ({spacing, direction, margin, children}) => (
+  <Style.Wrapper spacing={spacing} direction={direction} margin={margin}>
+    {children}
+  </Style.Wrapper>
+)
+
+Stack.defaultProps = {
+  spacing: "md",
+  direction: "row",
+  margin: "none"
+};
+
+Stack.propTypes = {
+  spacing: PropTypes.oneOf([1, 2, 3]),
+  direction: PropTypes.string,
+  margin: PropTypes.oneOf(["none", "sm", "md", "lg"])
+};
+
+export default Stack;

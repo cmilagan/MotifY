@@ -3,14 +3,14 @@ import { rem } from "polished";
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
   height: 440px;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   overflow-y: scroll;
   margin: 0;
   padding: 0;
   width: 100vw;
+  text-align: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
   > * {

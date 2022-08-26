@@ -30,20 +30,6 @@ export const Home = () => {
         <Item title="Workout" notification="Get off your chair now!" />
         <Item title="Workout" notification="Get off your chair now!" />
         <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
       </Container>
     </div>
   )

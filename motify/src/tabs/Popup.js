@@ -10,6 +10,7 @@ import { Footer } from "../components/footer";
 import StyledButton from "../components/button";
 import Item from "../components/item";
 import { Home } from "./Home";
+import { Create } from "./Create";
 
 export const Popup = () => {
   const [tab, setTab] = useState(HOME_TAB);
@@ -29,8 +30,8 @@ export const Popup = () => {
         </StyledButton>
       </Header>
       {tab === 1
-        ? <Home />
-        : <div>hi</div>
+        ? <Create />
+        : <Create />
       }
       <Footer>
         <StyledButton size="lg" onClick={() => {setTab(HOME_TAB);}}>
