@@ -7,13 +7,6 @@ import styled from "styled-components"
 import { localMode } from "../utils/constants";
 import { ShadowRoot } from "../utils/ShadowRoot";
 
-/** Color Palette
- * #363636 - Charcoal black
- * #243748 - Navy 
- * #800020 - Burgundy
- * #50C878 - Emerald Green
- */
-
 const Modal = styled.div`
   z-index: 1000 !important;
   border: 1px solid grey;

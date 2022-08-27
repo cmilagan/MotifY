@@ -5,9 +5,9 @@ import { localMode } from "../utils/constants";
 import { Container } from "../components/container";
 import Title from "../components/title";
 import Header from "../components/header";
-import Item from "../components/item";
 import Stack from "../components/layout";
-import Avatar from "../components/avatar";
+import ColorButton from "../components/color";
+import { BLACK, BLUE, RED, GREEN, TEAL } from "../utils/constants";
 
 export const Create = () => {
   const [notifications, setNotifications] = useState([]);
@@ -34,31 +34,11 @@ export const Create = () => {
             Notification Color
           </Title>
           <Stack direction="row" spacing={1} margin="none">
-            <Avatar
-              imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
-              username="motify"
-              size="md"
-            />
-            <Avatar
-              imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
-              username="motify"
-              size="md"
-            />
-            <Avatar
-              imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
-              username="motify"
-              size="md"
-            />
-            <Avatar
-              imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
-              username="motify"
-              size="md"
-            />
-            <Avatar
-              imageUrl="https://i.pinimg.com/736x/98/31/a8/9831a87a7f2d3ca32e64a15b1f20cbcf.jpg"
-              username="motify"
-              size="md"
-            />
+            <ColorButton color={BLACK} id="black-selector" />
+            <ColorButton color={BLUE} id="blue-selector" />
+            <ColorButton color={RED} id="red-selector" />
+            <ColorButton color={GREEN} id="green-selector" />
+            <ColorButton color={TEAL} id="teal-selector" />
           </Stack>
           <Title size="sm">
             Notification Title

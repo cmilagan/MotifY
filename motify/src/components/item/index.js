@@ -5,6 +5,7 @@ import Style from "./styles";
 import StyledButton from "../button";
 
 import { FaEdit, FaTrashAlt  } from "react-icons/fa";
+import { TEAL } from "../../utils/constants";
 
 const Item = ({title, color}) => (
   <Style.Wrapper>
@@ -26,7 +27,7 @@ const Item = ({title, color}) => (
 )
 
 Item.defaultProps = {
-  color: "#00B7EB"
+  color: TEAL
 };
 
 Item.propTypes = {

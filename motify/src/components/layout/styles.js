@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin: ${props => margin(props.margin)} 0;
 
-  > div {
+  > * {
     margin: ${props => spacing(props.spacing)} ${props => spacing(props.spacing)};
   }
 `;
