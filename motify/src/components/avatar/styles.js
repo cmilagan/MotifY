@@ -1,16 +1,12 @@
 import styled from "styled-components";
 import { rem } from "polished";
 
-/* units */
-const sizeUnit = 6;
-
-/* sizes */
-const createSize = size => rem(`${size * sizeUnit}px`);
+const createSize = (size) => rem(`${size}px`);
 
 const sizes = {
-  sm: createSize(3),
-  md: createSize(4),
-  lg: createSize(5)
+  sm: createSize(18),
+  md: createSize(24),
+  lg: createSize(30)
 };
 
 const size = size => {
