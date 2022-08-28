@@ -69,7 +69,7 @@ export const CheckBox = styled.input.attrs({
   `
 
 export const SubmitButton = styled.button`
-  width: 80%;
+  width: 40%;
   background-color: #363636;
   color: #eeeeee;
   height: 24px;
