@@ -8,6 +8,7 @@ import Header from "../components/header";
 import Stack from "../components/layout";
 import ColorButton from "../components/color";
 import { BLACK, BLUE, RED, GREEN, TEAL } from "../utils/constants";
+import { Input, Description, TimeSelecter, CheckBox, SubmitButton } from "../components/inputs";
 
 export const Create = () => {
   const [notifications, setNotifications] = useState([]);
@@ -43,23 +44,22 @@ export const Create = () => {
           <Title size="sm">
             Notification Title
           </Title>
-          <input type="text" id="ntitle" name="ntitle" />
+          <Input />
           <Title size="sm">
             Notification Description
           </Title>
-          <textarea id="ndesc" name="ndesc" rows="4" cols="30"></textarea>
+          <Description />
           <Title size="sm">
             Notification Time
           </Title>
-          <input type="time" id="ntime" name="ntime" min="00:00" max="24:00"required></input>
+          <TimeSelecter />
           <div>
-            <input type="checkbox" id="nrecurr" name="nrecurr" value={true} />
-            <label for="nrecurr">
-              <Title size="sm">
-                Recurring Notification
-              </Title>
-            </label>
+            <Title size="sm">
+              Recurring
+            </Title>
+            <CheckBox />
           </div>
+          <SubmitButton>Submit</SubmitButton>
         </Stack>
       </Container>
     </div>

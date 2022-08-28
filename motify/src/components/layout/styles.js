@@ -11,9 +11,9 @@ const spacings = {
 
 const margins = {
   "none": createSize(0),
-  "sm": createSize(12),
-  "md": createSize(18),
-  "lg": createSize(24)
+  "sm": createSize(8),
+  "md": createSize(12),
+  "lg": createSize(18)
 };
 
 const spacing = spacing => {
