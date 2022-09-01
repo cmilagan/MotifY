@@ -11,9 +11,13 @@ import StyledButton from "../components/button";
 import Item from "../components/item";
 import { Home } from "./Home";
 import { Create } from "./Create";
+import EditModal from "./EditModal";
 
 export const Popup = () => {
   const [tab, setTab] = useState(HOME_TAB);
+  console.log("hello world");
+  console.log("hello");
+  console.log(React.version);
 
   return (
     <div>
@@ -29,22 +33,29 @@ export const Popup = () => {
           </Title>
         </StyledButton>
       </Header>
-      {tab === 1
-        ? <Create />
+      {tab === HOME_TAB
+        ? <Home />
         : <Create />
       }
       <Footer>
-        <StyledButton size="lg" onClick={() => {setTab(HOME_TAB);}}>
+        <button onClick={() => {setTab(HOME_TAB)}}>
+          h
+        </button>
+        <button onClick={() => {setTab(CREATE_TAB)}}>
+          c
+        </button>
+        <StyledButton size="lg" onClick={() => {setTab(HOME_TAB)}}>
           <Title size="lg">
             &#x2302;
           </Title>
         </StyledButton>
-        <StyledButton size="lg" onClick={() => {setTab(CREATE_TAB);}}>
+        <StyledButton size="lg" onClick={() => {setTab(CREATE_TAB)}}>
           <Title size="lg">
             &#43;
           </Title>
         </StyledButton>
       </Footer>
+      <EditModal />
     </div>
   )
 }

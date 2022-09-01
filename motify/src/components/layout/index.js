@@ -16,9 +16,9 @@ Stack.defaultProps = {
 };
 
 Stack.propTypes = {
-  spacing: PropTypes.oneOf([1, 2, 3]),
+  spacing: PropTypes.oneOf([0, 1, 2, 3]),
   direction: PropTypes.string,
-  margin: PropTypes.oneOf(["none", "sm", "md", "lg"])
+  margin: PropTypes.oneOf(["none", "xs", "sm", "md", "lg"])
 };
 
 export default Stack;

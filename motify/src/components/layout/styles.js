@@ -4,6 +4,7 @@ import { rem } from "polished";
 const createSize = (size) => rem(`${size}px`);
 
 const spacings = {
+  0: createSize(4),
   1: createSize(8),
   2: createSize(12),
   3: createSize(18)
@@ -11,6 +12,7 @@ const spacings = {
 
 const margins = {
   "none": createSize(0),
+  "xs": createSize(4),
   "sm": createSize(8),
   "md": createSize(12),
   "lg": createSize(18)
