@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import Style from "./styles";
 
-const StyledButton = ({size, color, children}) => (
-  <Style.Wrapper size={size} color={color}>
+const StyledButton = ({size, color, children, onClick}) => (
+  <Style.Wrapper size={size} color={color} onClick={onClick}>
     {children}
   </Style.Wrapper>
 )

@@ -6,6 +6,7 @@ import StyledButton from "../button";
 
 import { FaEdit, FaTrashAlt  } from "react-icons/fa";
 import { TEAL } from "../../utils/constants";
+import EditModal from "../../tabs/EditModal";
 
 const Item = ({title, color}) => (
   <Style.Wrapper>

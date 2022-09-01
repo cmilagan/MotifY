@@ -110,7 +110,7 @@ const EditModal = () => {
               <SubmitButton>Submit</SubmitButton>
             </Stack>
           </StyledContainer>
-        </Modal>      
+        </Modal>
       }
     </div>
   );
