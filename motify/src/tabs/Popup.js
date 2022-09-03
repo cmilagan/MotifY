@@ -12,10 +12,25 @@ import Item from "../components/item";
 import { Home } from "./Home";
 import { Create } from "./Create";
 import EditModal from "./EditModal";
+import "./active.css";
 
 export const Popup = () => {
   const [tab, setTab] = useState(HOME_TAB);
 
+  useEffect(() => {
+    document.getElementById("home-button").style.opacity = 0.4;
+  }, []);
+
+  function updatePage(evt, page_num) {
+    let i, navlink;
+    setTab(page_num);
+    navlink = document.getElementsByClassName("navlink");
+    for (i = 0; i < navlink.length; i++) {
+      navlink[i].style.opacity = 1;
+    }
+    evt.currentTarget.style.opacity = 0.4;
+  }
+  
   return (
     <div>
       <Header size="lg">
@@ -35,16 +50,20 @@ export const Popup = () => {
         : <Create />
       }
       <Footer>
-        <StyledButton size="lg" onClick={() => {setTab(HOME_TAB)}}>
-          <Title size="lg">
-            &#x2302;
-          </Title>
-        </StyledButton>
-        <StyledButton size="lg" onClick={() => {setTab(CREATE_TAB)}}>
-          <Title size="lg">
-            &#43;
-          </Title>
-        </StyledButton>
+        <div class="navlink" id="home-button" onClick={(event) => {updatePage(event, HOME_TAB)}}>
+          <StyledButton size="lg" id="home">
+            <Title size="lg">
+              &#x2302;
+            </Title>
+          </StyledButton>
+        </div>
+        <div class="navlink" id="create-button" onClick={(event) => {updatePage(event, CREATE_TAB)}}>
+          <StyledButton size="lg" id="create">
+            <Title size="lg">
+              &#43;
+            </Title>
+          </StyledButton>
+        </div>
       </Footer>
     </div>
   )
