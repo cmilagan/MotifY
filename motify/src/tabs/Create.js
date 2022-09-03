@@ -12,6 +12,7 @@ import { Input, Description, TimeSelecter, CheckBox, SubmitButton } from "../com
 
 export const Create = () => {
   const [notifications, setNotifications] = useState([]);
+  const [color, setColor] = useState(null);
 
   // get notifications to display in popup.html
   useEffect(() => {
@@ -21,6 +22,17 @@ export const Create = () => {
       })
     }
   }, []);
+
+  function selectColor(evt, color) {
+    let i, colors;
+    setColor(color);
+    colors = document.getElementsByClassName("color-selector");
+    console.log(colors);
+    for (i = 0; i < colors.length; i++) {
+      colors[i].style.opacity = 1;
+    }
+    evt.currentTarget.style.opacity = 0.4;
+  }
 
   return (
     <div>
@@ -35,11 +47,21 @@ export const Create = () => {
             Notification Color
           </Title>
           <Stack direction="row" spacing={1} margin="none">
-            <ColorButton color={BLACK} id="black-selector" />
-            <ColorButton color={BLUE} id="blue-selector" />
-            <ColorButton color={RED} id="red-selector" />
-            <ColorButton color={GREEN} id="green-selector" />
-            <ColorButton color={TEAL} id="teal-selector" />
+            <div className="color-selector" onClick={(event) => {selectColor(event, BLACK)}}>
+              <ColorButton color={BLACK} id="black-selector"/>
+            </div>
+            <div className="color-selector" onClick={(event) => {selectColor(event, BLUE)}}>
+              <ColorButton color={BLUE} id="blue-selector"/>
+            </div>
+            <div className="color-selector" onClick={(event) => {selectColor(event, RED)}}>
+              <ColorButton color={RED} id="red-selector"/>            
+            </div>
+            <div className="color-selector" onClick={(event) => {selectColor(event, GREEN)}}>
+              <ColorButton color={GREEN} id="green-selector"/>            
+            </div>
+            <div className="color-selector" onClick={(event) => {selectColor(event, TEAL)}}>
+              <ColorButton color={TEAL} id="teal-selector"/>            
+            </div>
           </Stack>
           <Title size="sm">
             Notification Title

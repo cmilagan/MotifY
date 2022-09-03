@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import Style from "./styles";
 import { TEAL } from "../../utils/constants";
 
-const ColorButton = ({ color }) => (
-  <Style.Wrapper color={color} />
+const ColorButton = ({ color, onClick }) => (
+  <Style.Wrapper color={color} onClick={onClick} />
 );
 
 ColorButton.defaultProps = {

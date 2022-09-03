@@ -66,6 +66,7 @@ const StyledContainer = styled.div`
 const EditModal = () => {
   const [notifications, setNotifications] = useState([]);
   const [closed, setClosed] = useState(false);
+  const [color, setColor] = useState(null);
   const url = window.location.href;
 
   // get Notifications if they're there
@@ -84,7 +85,19 @@ const EditModal = () => {
         ? chrome.storage.local.set({ [url]: notifications })
         : chrome.storage.local.remove(url);
     }
-  }, [notifications])
+  }, [notifications]);
+
+  function selectColor(evt, color) {
+    let i, colors;
+    setColor(color);
+    colors = document.getElementsByClassName("color-selector");
+    console.log(colors);
+    for (i = 0; i < colors.length; i++) {
+      colors[i].style.opacity = 1;
+    }
+    evt.currentTarget.style.opacity = 0.4;
+  }
+
   return (
     <div>
       {!closed &&
@@ -98,11 +111,21 @@ const EditModal = () => {
           <StyledContainer>
             <Stack direction="column" margin="xs" spacing={2}>
               <Stack direction="row" spacing={0} margin="none">
-                <ColorButton color={BLACK} id="black-selector" />
-                <ColorButton color={BLUE} id="blue-selector" />
-                <ColorButton color={RED} id="red-selector" />
-                <ColorButton color={GREEN} id="green-selector" />
-                <ColorButton color={TEAL} id="teal-selector" />
+                <div className="color-selector" onClick={(event) => {selectColor(event, BLACK)}}>
+                  <ColorButton color={BLACK} id="black-selector"/>
+                </div>
+                <div className="color-selector" onClick={(event) => {selectColor(event, BLUE)}}>
+                  <ColorButton color={BLUE} id="blue-selector"/>
+                </div>
+                <div className="color-selector" onClick={(event) => {selectColor(event, RED)}}>
+                  <ColorButton color={RED} id="red-selector"/>            
+                </div>
+                <div className="color-selector" onClick={(event) => {selectColor(event, GREEN)}}>
+                  <ColorButton color={GREEN} id="green-selector"/>            
+                </div>
+                <div className="color-selector" onClick={(event) => {selectColor(event, TEAL)}}>
+                  <ColorButton color={TEAL} id="teal-selector"/>            
+                </div>
               </Stack>
               <Input />
               <Description />

@@ -8,11 +8,9 @@ import Title from "../components/title";
 import Header from "../components/header";
 import { Footer } from "../components/footer";
 import StyledButton from "../components/button";
-import Item from "../components/item";
 import { Home } from "./Home";
 import { Create } from "./Create";
 import EditModal from "./EditModal";
-import "./active.css";
 
 export const Popup = () => {
   const [tab, setTab] = useState(HOME_TAB);
@@ -65,6 +63,7 @@ export const Popup = () => {
           </StyledButton>
         </div>
       </Footer>
+      <EditModal/>
     </div>
   )
 }
