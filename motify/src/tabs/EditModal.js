@@ -63,9 +63,8 @@ const StyledContainer = styled.div`
   align-items: center;
 `
 
-const EditModal = () => {
+const EditModal = (props) => {
   const [notifications, setNotifications] = useState([]);
-  const [closed, setClosed] = useState(false);
   const [color, setColor] = useState(null);
   const url = window.location.href;
 
@@ -98,45 +97,43 @@ const EditModal = () => {
     evt.currentTarget.style.opacity = 0.4;
   }
 
-  return (
+  return (props.trigger) ? (
     <div>
-      {!closed &&
-        <Modal>
-          <Header>
-          <Title>
-            Edit Notification
-          </Title>
-          <StyledButton onClick={() => {setClosed(true)}}>&#10006;</StyledButton>
-          </Header>
-          <StyledContainer>
-            <Stack direction="column" margin="xs" spacing={2}>
-              <Stack direction="row" spacing={0} margin="none">
-                <div className="color-selector" onClick={(event) => {selectColor(event, BLACK)}}>
-                  <ColorButton color={BLACK} id="black-selector"/>
-                </div>
-                <div className="color-selector" onClick={(event) => {selectColor(event, BLUE)}}>
-                  <ColorButton color={BLUE} id="blue-selector"/>
-                </div>
-                <div className="color-selector" onClick={(event) => {selectColor(event, RED)}}>
-                  <ColorButton color={RED} id="red-selector"/>            
-                </div>
-                <div className="color-selector" onClick={(event) => {selectColor(event, GREEN)}}>
-                  <ColorButton color={GREEN} id="green-selector"/>            
-                </div>
-                <div className="color-selector" onClick={(event) => {selectColor(event, TEAL)}}>
-                  <ColorButton color={TEAL} id="teal-selector"/>            
-                </div>
-              </Stack>
-              <Input />
-              <Description />
-              <TimeSelecter />
-              <SubmitButton>Submit</SubmitButton>
+      <Modal>
+        <Header>
+        <Title>
+          Edit Notification
+        </Title>
+        <StyledButton onClick={() => {props.setTrigger(false);}}>&#10006;</StyledButton>
+        </Header>
+        <StyledContainer>
+          <Stack direction="column" margin="xs" spacing={2}>
+            <Stack direction="row" spacing={0} margin="none">
+              <div className="color-selector" onClick={(event) => {selectColor(event, BLACK)}}>
+                <ColorButton color={BLACK} id="black-selector"/>
+              </div>
+              <div className="color-selector" onClick={(event) => {selectColor(event, BLUE)}}>
+                <ColorButton color={BLUE} id="blue-selector"/>
+              </div>
+              <div className="color-selector" onClick={(event) => {selectColor(event, RED)}}>
+                <ColorButton color={RED} id="red-selector"/>            
+              </div>
+              <div className="color-selector" onClick={(event) => {selectColor(event, GREEN)}}>
+                <ColorButton color={GREEN} id="green-selector"/>            
+              </div>
+              <div className="color-selector" onClick={(event) => {selectColor(event, TEAL)}}>
+                <ColorButton color={TEAL} id="teal-selector"/>            
+              </div>
             </Stack>
-          </StyledContainer>
-        </Modal>
-      }
+            <Input />
+            <Description />
+            <TimeSelecter />
+            <SubmitButton>Submit</SubmitButton>
+          </Stack>
+        </StyledContainer>
+      </Modal>
     </div>
-  );
+  ) : "";
 }
 
 export default EditModal;

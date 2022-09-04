@@ -63,7 +63,6 @@ export const Popup = () => {
           </StyledButton>
         </div>
       </Footer>
-      <EditModal/>
     </div>
   )
 }

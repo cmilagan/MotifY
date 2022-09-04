@@ -8,24 +8,31 @@ import { FaEdit, FaTrashAlt  } from "react-icons/fa";
 import { TEAL } from "../../utils/constants";
 import EditModal from "../../tabs/EditModal";
 
-const Item = ({title, color}) => (
-  <Style.Wrapper>
-    <Style.ColorBlock color={color}/>
-    <Style.Container>
-      <Title size="sm">
-        {title}
-      </Title>
-      <Style.ButtonContainer>
-        <StyledButton size="sm" color="#ff1818">
-          <FaTrashAlt />
-        </StyledButton>
-        <StyledButton size="sm">
-          <FaEdit />
-        </StyledButton>
-      </Style.ButtonContainer>
-    </Style.Container>
-  </Style.Wrapper>
-)
+const Item = ({title, color}) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <Style.Wrapper>
+        <Style.ColorBlock color={color}/>
+        <Style.Container>
+          <Title size="sm">
+            {title}
+          </Title>
+          <Style.ButtonContainer>
+            <StyledButton size="sm" color="#ff1818">
+              <FaTrashAlt />
+            </StyledButton>
+            <StyledButton size="sm" onClick={() => {setOpen(true)}}>
+              <FaEdit />
+            </StyledButton>
+          </Style.ButtonContainer>
+        </Style.Container>
+      </Style.Wrapper>
+      <EditModal trigger={open} setTrigger={setOpen}/>
+    </div>
+  )
+}
 
 Item.defaultProps = {
   color: TEAL
