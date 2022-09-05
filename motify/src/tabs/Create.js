@@ -12,7 +12,13 @@ import { Input, Description, TimeSelecter, CheckBox, SubmitButton } from "../com
 
 export const Create = () => {
   const [notifications, setNotifications] = useState([]);
-  const [color, setColor] = useState(null);
+  const [form, setForm] = useState({
+    notification_color: null,
+    notification_title: "",
+    notification_description: "",
+    notification_time: "",
+    notification_recurring: null,
+  });
 
   // get notifications to display in popup.html
   useEffect(() => {
@@ -23,15 +29,26 @@ export const Create = () => {
     }
   }, []);
 
+  const setValue = (field, value) => {
+    setForm({
+      ...form,
+      [field]: value,
+    });
+  };
+
+  function createNotification() {
+    let data = form;
+    console.log(data);
+  }
   function selectColor(evt, color) {
     let i, colors;
-    setColor(color);
     colors = document.getElementsByClassName("color-selector");
     console.log(colors);
     for (i = 0; i < colors.length; i++) {
       colors[i].style.opacity = 1;
     }
     evt.currentTarget.style.opacity = 0.4;
+    setValue("notification_color", color);
   }
 
   return (
@@ -66,22 +83,22 @@ export const Create = () => {
           <Title size="sm">
             Notification Title
           </Title>
-          <Input />
+          <Input onChange={(event) => {setValue("notification_title", event.target.value)}}/>
           <Title size="sm">
             Notification Description
           </Title>
-          <Description />
+          <Description onChange={(event) => {setValue("notification_description", event.target.value)}}/>
           <Title size="sm">
             Notification Time
           </Title>
-          <TimeSelecter />
+          <TimeSelecter onChange={(event) => {setValue("notification_time", event.target.value)}}/>
           <div>
             <Title size="sm">
               Recurring
             </Title>
-            <CheckBox />
+            <CheckBox onChange={(event) => {setValue("notification_recurring", event.target.checked)}}/>
           </div>
-          <SubmitButton>Submit</SubmitButton>
+          <SubmitButton onClick={() => {createNotification()}}>Submit</SubmitButton>
         </Stack>
       </Container>
     </div>
