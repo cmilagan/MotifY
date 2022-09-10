@@ -23,8 +23,8 @@ export const Create = () => {
   // get notifications to display in popup.html
   useEffect(() => {
     if(!localMode) {
-      chrome.storage.local.get((items) => {
-        setNotifications(items);
+      chrome.storage.sync.get("allNotifications", (items) => {
+        items["allNotifications"] && setNotifications(items["allNotifications"]);
       })
     }
   }, []);
@@ -36,9 +36,25 @@ export const Create = () => {
     });
   };
 
+  // update chrome storage whenever notifications changes
+  useEffect(() => {
+    notifications.length > 0
+      ? chrome.storage.sync.set({ "allNotifications": notifications }, function () {alert("Notification successfully created")})
+      : chrome.storage.sync.remove("allNotifications");
+    console.log(notifications);
+  }, [notifications]);
+
   function createNotification() {
     let data = form;
-    console.log(data);
+    if (data["notification_color"] == null) {
+      alert("You must select a color");
+    } else if (data["notification_title"] == "") {
+      alert("You must give your notification a title");
+    } else if (data["notification_time"] == "") {
+      alert("You must specify a time for your notification");
+    } else {
+      setNotifications((prevNotif) => [...prevNotif, data])
+    }
   }
   function selectColor(evt, color) {
     let i, colors;
