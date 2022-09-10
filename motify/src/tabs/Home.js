@@ -12,11 +12,9 @@ export const Home = () => {
 
   // get notifications to display in popup.html
   useEffect(() => {
-    if(!localMode) {
-      chrome.storage.local.get((items) => {
-        setNotifications(items);
-      })
-    }
+    chrome.storage.local.get("allNotifications", (items) => {
+      setNotifications(items);
+    })
   }, []);
 
   return (
@@ -30,6 +28,7 @@ export const Home = () => {
         <Item title="Workout" notification="Get off your chair now!" />
         <Item title="Workout" notification="Get off your chair now!" />
         <Item title="Workout" notification="Get off your chair now!" />
+        {console.log(notifications)}
       </Container>
     </div>
   )

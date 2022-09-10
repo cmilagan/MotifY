@@ -20,15 +20,6 @@ export const Create = () => {
     notification_recurring: null,
   });
 
-  // get notifications to display in popup.html
-  useEffect(() => {
-    if(!localMode) {
-      chrome.storage.sync.get("allNotifications", (items) => {
-        items["allNotifications"] && setNotifications(items["allNotifications"]);
-      })
-    }
-  }, []);
-
   const setValue = (field, value) => {
     setForm({
       ...form,
@@ -39,8 +30,8 @@ export const Create = () => {
   // update chrome storage whenever notifications changes
   useEffect(() => {
     notifications.length > 0
-      ? chrome.storage.sync.set({ "allNotifications": notifications }, function () {alert("Notification successfully created")})
-      : chrome.storage.sync.remove("allNotifications");
+      ? chrome.storage.local.set({ "allNotifications": notifications }, function () {alert("Notification successfully created")})
+      : chrome.storage.local.remove("allNotifications");
     console.log(notifications);
   }, [notifications]);
 
