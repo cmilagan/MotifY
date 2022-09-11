@@ -54,7 +54,7 @@ const StyledButton = styled.button`
 `
 const StyledContainer = styled.div`
   color: dark grey;
-  background-color: #36363636;
+  background-color: #363636;
   height: 45vh;
   width: 80vw;
   border: none;
