@@ -8,16 +8,16 @@ import { FaEdit, FaTrashAlt  } from "react-icons/fa";
 import { TEAL } from "../../utils/constants";
 import EditModal from "../../tabs/EditModal";
 
-const Item = ({title, color}) => {
+const Item = ({item}) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div>
       <Style.Wrapper>
-        <Style.ColorBlock color={color}/>
+        <Style.ColorBlock color={item.notification_color}/>
         <Style.Container>
           <Title size="sm">
-            {title}
+            {item.notification_title}
           </Title>
           <Style.ButtonContainer>
             <StyledButton size="sm" color="#ff1818">
@@ -34,14 +34,8 @@ const Item = ({title, color}) => {
   )
 }
 
-Item.defaultProps = {
-  color: TEAL
-};
-
 Item.propTypes = {
-  title: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  notification: PropTypes.string,
+  item: PropTypes.object.isRequired
 };
 
 export default Item;

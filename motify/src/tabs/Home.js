@@ -7,16 +7,7 @@ import Title from "../components/title";
 import Header from "../components/header";
 import Item from "../components/item";
 
-export const Home = () => {
-  const [notifications, setNotifications] = useState([]);
-
-  // get notifications to display in popup.html
-  useEffect(() => {
-    chrome.storage.local.get("allNotifications", (items) => {
-      setNotifications(items);
-    })
-  }, []);
-
+export const Home = (props) => {
   return (
     <div>
       <Header size="md">
@@ -25,10 +16,11 @@ export const Home = () => {
         </Title>
       </Header>
       <Container>
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        <Item title="Workout" notification="Get off your chair now!" />
-        {console.log(notifications)}
+        {Array.isArray(props.notifications)
+          ? props.notifications.map(item => {
+              return <Item item={item} />
+            })
+          : null}
       </Container>
     </div>
   )

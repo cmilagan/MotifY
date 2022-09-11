@@ -14,9 +14,13 @@ import EditModal from "./EditModal";
 
 export const Popup = () => {
   const [tab, setTab] = useState(HOME_TAB);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     document.getElementById("home-button").style.opacity = 0.4;
+    chrome.storage.local.get("allNotifications", (items) => {
+      items["allNotifications"] && setNotifications(items["allNotifications"]);
+    })
   }, []);
 
   function updatePage(evt, page_num) {
@@ -44,8 +48,8 @@ export const Popup = () => {
         </StyledButton>
       </Header>
       {tab === HOME_TAB
-        ? <Home />
-        : <Create />
+        ? <Home notifications={notifications} setNotifications={setNotifications}/>
+        : <Create notifications={notifications} setNotifications={setNotifications}/>
       }
       <Footer>
         <div class="navlink" id="home-button" onClick={(event) => {updatePage(event, HOME_TAB)}}>

@@ -7,11 +7,10 @@ import Title from "../components/title";
 import Header from "../components/header";
 import Stack from "../components/layout";
 import ColorButton from "../components/color";
-import { BLACK, BLUE, RED, GREEN, TEAL } from "../utils/constants";
+import { PURPLE, BLUE, RED, GREEN, TEAL } from "../utils/constants";
 import { Input, Description, TimeSelecter, CheckBox, SubmitButton } from "../components/inputs";
 
-export const Create = () => {
-  const [notifications, setNotifications] = useState([]);
+export const Create = (props) => {
   const [form, setForm] = useState({
     notification_color: null,
     notification_title: "",
@@ -29,11 +28,11 @@ export const Create = () => {
 
   // update chrome storage whenever notifications changes
   useEffect(() => {
-    notifications.length > 0
-      ? chrome.storage.local.set({ "allNotifications": notifications }, function () {alert("Notification successfully created")})
+    props.notifications.length > 0
+      ? chrome.storage.local.set({ "allNotifications": props.notifications })
       : chrome.storage.local.remove("allNotifications");
-    console.log(notifications);
-  }, [notifications]);
+    console.log(props.notifications);
+  }, [props.notifications]);
 
   function createNotification() {
     let data = form;
@@ -44,7 +43,10 @@ export const Create = () => {
     } else if (data["notification_time"] == "") {
       alert("You must specify a time for your notification");
     } else {
-      setNotifications((prevNotif) => [...prevNotif, data])
+      console.log("I get here");
+      console.log(data);
+      props.setNotifications(prevNotif => [...prevNotif, data])
+      alert("Notification successfully created")
     }
   }
   function selectColor(evt, color) {
@@ -71,8 +73,8 @@ export const Create = () => {
             Notification Color
           </Title>
           <Stack direction="row" spacing={1} margin="none">
-            <div className="color-selector" onClick={(event) => {selectColor(event, BLACK)}}>
-              <ColorButton color={BLACK} id="black-selector"/>
+            <div className="color-selector" onClick={(event) => {selectColor(event, PURPLE)}}>
+              <ColorButton color={PURPLE} id="black-selector"/>
             </div>
             <div className="color-selector" onClick={(event) => {selectColor(event, BLUE)}}>
               <ColorButton color={BLUE} id="blue-selector"/>

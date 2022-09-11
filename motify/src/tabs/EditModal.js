@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "../App.css"
 
 import styled from "styled-components"
-import { localMode, BLACK, BLUE, RED, GREEN, TEAL } from "../utils/constants";
+import { localMode, PURPLE, BLUE, RED, GREEN, TEAL } from "../utils/constants";
 import Stack from "../components/layout";
 import ColorButton from "../components/color";
 import { Input, Description, SubmitButton, TimeSelecter } from "../components/inputs";
@@ -54,7 +54,7 @@ const StyledButton = styled.button`
 `
 const StyledContainer = styled.div`
   color: dark grey;
-  background-color: ${BLACK};
+  background-color: #36363636;
   height: 45vh;
   width: 80vw;
   border: none;
@@ -65,7 +65,6 @@ const StyledContainer = styled.div`
 
 const EditModal = (props) => {
   const [notifications, setNotifications] = useState([]);
-  const [color, setColor] = useState(null);
   const url = window.location.href;
 
   // get Notifications if they're there
@@ -88,7 +87,6 @@ const EditModal = (props) => {
 
   function selectColor(evt, color) {
     let i, colors;
-    setColor(color);
     colors = document.getElementsByClassName("color-selector");
     console.log(colors);
     for (i = 0; i < colors.length; i++) {
@@ -109,8 +107,8 @@ const EditModal = (props) => {
         <StyledContainer>
           <Stack direction="column" margin="xs" spacing={2}>
             <Stack direction="row" spacing={0} margin="none">
-              <div className="color-selector" onClick={(event) => {selectColor(event, BLACK)}}>
-                <ColorButton color={BLACK} id="black-selector"/>
+              <div className="color-selector" onClick={(event) => {selectColor(event, PURPLE)}}>
+                <ColorButton color={PURPLE} id="black-selector"/>
               </div>
               <div className="color-selector" onClick={(event) => {selectColor(event, BLUE)}}>
                 <ColorButton color={BLUE} id="blue-selector"/>
