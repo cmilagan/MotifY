@@ -1,3 +1,4 @@
+/* global chrome */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Title from "../title";
@@ -8,11 +9,23 @@ import { FaEdit, FaTrashAlt  } from "react-icons/fa";
 import { TEAL } from "../../utils/constants";
 import EditModal from "../../tabs/EditModal";
 
-const Item = ({item}) => {
+const Item = ({id, item, idx, setNotifications, notifications}) => {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    notifications.length > 0
+      ? chrome.storage.local.set({ "allNotifications": notifications })
+      : chrome.storage.local.remove("allNotifications");
+  }, [notifications]);
+
+  const handleRemoveItem = () => {
+    notifications.splice(idx, 1);
+    setNotifications(notifications);
+    document.getElementById(id).style.display = "none";
+  }
+
   return (
-    <div>
+    <div id={id}>
       <Style.Wrapper>
         <Style.ColorBlock color={item.notification_color}/>
         <Style.Container>
@@ -20,7 +33,7 @@ const Item = ({item}) => {
             {item.notification_title}
           </Title>
           <Style.ButtonContainer>
-            <StyledButton size="sm" color="#ff1818">
+            <StyledButton size="sm" color="#ff1818" onClick={() => {handleRemoveItem()}}>
               <FaTrashAlt />
             </StyledButton>
             <StyledButton size="sm" onClick={() => {setOpen(true)}}>

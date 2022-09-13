@@ -8,6 +8,7 @@ import Header from "../components/header";
 import Item from "../components/item";
 
 export const Home = (props) => {
+
   return (
     <div>
       <Header size="md">
@@ -17,8 +18,8 @@ export const Home = (props) => {
       </Header>
       <Container>
         {Array.isArray(props.notifications)
-          ? props.notifications.map(item => {
-              return <Item item={item} />
+          ? props.notifications.map((item, idx) => {
+              return <Item id={"item_" + String(idx)}item={item} idx={idx} setNotifications={props.setNotifications} notifications={props.notifications}/>
             })
           : null}
       </Container>

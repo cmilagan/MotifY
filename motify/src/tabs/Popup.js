@@ -18,6 +18,7 @@ export const Popup = () => {
 
   useEffect(() => {
     document.getElementById("home-button").style.opacity = 0.4;
+    // chrome.storage.local.remove("allNotifications");
     chrome.storage.local.get("allNotifications", (items) => {
       items["allNotifications"] && setNotifications(items["allNotifications"]);
     })
