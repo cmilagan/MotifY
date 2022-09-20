@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Input = styled.input.attrs({ 
     type: 'text',
-    placeholder: "Your Notification"
+    placeholder: "Your Notification",
   })`
     background: #ddd;
     color: #000;
@@ -22,8 +22,8 @@ export const Input = styled.input.attrs({
     }
   `
 
-export const Description = styled.textarea.attrs({
-    placeholder: "Write a meaningful reminder!"
+export const Description = styled.textarea.attrs( {
+    placeholder: "Write a meaningful reminder!",
   })`
     resize: none;
     background: #ddd;
@@ -45,7 +45,7 @@ export const Description = styled.textarea.attrs({
 export const TimeSelecter = styled.input.attrs({
     type: 'time',
     min: "00:00",
-    max: "24:00"
+    max: "24:00",
   })`
     color: #000;
     background: #ddd;

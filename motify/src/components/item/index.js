@@ -42,7 +42,7 @@ const Item = ({id, item, idx, setNotifications, notifications}) => {
           </Style.ButtonContainer>
         </Style.Container>
       </Style.Wrapper>
-      <EditModal trigger={open} setTrigger={setOpen}/>
+      <EditModal trigger={open} setTrigger={setOpen} item={item}/>
     </div>
   )
 }
