@@ -66,11 +66,11 @@ const StyledContainer = styled.div`
 const EditModal = (props) => {
   const url = window.location.href;
   const [form, setForm] = useState({
-    notification_color: null,
-    notification_title: "",
-    notification_description: "",
-    notification_time: "",
-    notification_recurring: null,
+    notification_color: props.item.notification_color,
+    notification_title: props.item.notification_title,
+    notification_description: props.item.notification_description,
+    notification_time: props.item.notification_time,
+    notification_recurring: props.item.notification_recurring,
   });
 
   const setValue = (field, value) => {
@@ -81,19 +81,7 @@ const EditModal = (props) => {
   };
 
   useEffect(() => {
-    // select current color
-    console.log(props.item.notification_color);
-    // if (props.item.notification_color === BLUE) {
-    //   document.getElementById("blue-selector").style.opacity = 0.4;
-    // } else if (props.item.notification_color === RED) {
-    //   document.getElementById("red-selector").style.opacity = 0.4;
-    // } else if (props.item.notification_color === GREEN) {
-    //   document.getElementById("green-selector").style.opacity = 0.4;
-    // } else if (props.item.notification_color === PURPLE) {
-    //   document.getElementById("purple-selector").style.opacity = 0.4;
-    // } else if (props.item.notification_color === TEAL) {
-    //   document.getElementById("teal-selector").style.opacity = 0.4;      
-    // }
+    console.log(form)
   }, []);
 
   function editNotification() {
@@ -103,7 +91,6 @@ const EditModal = (props) => {
   function selectColor(evt, color) {
     let i, colors;
     colors = document.getElementsByClassName("color-selector");
-    console.log(colors);
     for (i = 0; i < colors.length; i++) {
       colors[i].style.opacity = 1;
     }
@@ -144,7 +131,7 @@ const EditModal = (props) => {
             <Title size="sm">
               Recurring
             </Title>
-            <CheckBox checked={props.item.notification_recurring} onChange={(event) => {setValue("notification_recurring", event.target.checked)}}/>
+            <CheckBox checked={form.notification_recurring} onChange={(event) => {setValue("notification_recurring", event.target.checked)}}/>
             <SubmitButton onClick={editNotification}>Submit</SubmitButton>
           </Stack>
         </StyledContainer>
