@@ -85,7 +85,7 @@ const EditModal = (props) => {
   }, []);
 
   function editNotification() {
-    
+    props.item = form
   }
 
   function selectColor(evt, color) {
@@ -125,9 +125,9 @@ const EditModal = (props) => {
                 <ColorButton color={TEAL}/>            
               </div>
             </Stack>
-            <Input value={props.item.notification_title} onChange={(event) => {setValue("notification_title", event.target.value)}}/>
-            <Description value={props.item.notification_description} onChange={(event) => {setValue("notification_description", event.target.value)}}/>
-            <TimeSelecter value={props.item.notification_time} onChange={(event) => {setValue("notification_time", event.target.value)}}/>
+            <Input value={form.notification_title} onChange={(event) => {setValue("notification_title", event.target.value)}}/>
+            <Description value={form.notification_description} onChange={(event) => {setValue("notification_description", event.target.value)}}/>
+            <TimeSelecter value={form.notification_time} onChange={(event) => {setValue("notification_time", event.target.value)}}/>
             <Title size="sm">
               Recurring
             </Title>
