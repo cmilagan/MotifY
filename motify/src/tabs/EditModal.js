@@ -8,6 +8,7 @@ import { localMode, PURPLE, BLUE, RED, GREEN, TEAL } from "../utils/constants";
 import Stack from "../components/layout";
 import ColorButton from "../components/color";
 import { Input, Description, SubmitButton, TimeSelecter, CheckBox } from "../components/inputs";
+import Item from "../components/item";
 
 const Modal = styled.div`
   z-index: 1000 !important;
@@ -73,6 +74,15 @@ const EditModal = (props) => {
     notification_recurring: props.item.notification_recurring,
   });
 
+
+  // update chrome storage whenever notifications changes
+  useEffect(() => {
+    console.log("hello world");
+    props.notifications.length > 0
+      ? chrome.storage.local.set({ "allNotifications": props.notifications })
+      : chrome.storage.local.remove("allNotifications");
+  }, [props.notifications]);
+
   const setValue = (field, value) => {
     setForm({
       ...form,
@@ -85,7 +95,15 @@ const EditModal = (props) => {
   }, []);
 
   function editNotification() {
-    props.item = form
+    const remove = props.notifications.indexOf(props.item);
+    const x = props.notifications.splice(remove, 1);
+    props.notifications.push(form);
+    props.setNotifications(props.notifications);
+
+    // const updatedData = (
+    //   <Item id={props.id} item={form} idx={props.idx} setNotifications={props.setNotifications} notifications={props.notifications}/>
+    // )
+    // document.getElementById(props.id).innerHTML = updatedData;
   }
 
   function selectColor(evt, color) {
@@ -95,6 +113,7 @@ const EditModal = (props) => {
       colors[i].style.opacity = 1;
     }
     evt.currentTarget.style.opacity = 0.4;
+    setValue("notification_color", color);
   }
 
   return (props.trigger) ? (
@@ -132,7 +151,7 @@ const EditModal = (props) => {
               Recurring
             </Title>
             <CheckBox checked={form.notification_recurring} onChange={(event) => {setValue("notification_recurring", event.target.checked)}}/>
-            <SubmitButton onClick={editNotification}>Submit</SubmitButton>
+            <SubmitButton onClick={() => {editNotification(); props.setTrigger(false);}}>Submit</SubmitButton>
           </Stack>
         </StyledContainer>
       </Modal>

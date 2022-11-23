@@ -9,6 +9,8 @@ import Item from "../components/item";
 
 export const Home = (props) => {
 
+  // sort notifications by color
+
   return (
     <div>
       <Header size="md">

@@ -49,8 +49,8 @@ export const Popup = () => {
         </StyledButton>
       </Header>
       {tab === HOME_TAB
-        ? <Home notifications={notifications} setNotifications={setNotifications}/>
-        : <Create notifications={notifications} setNotifications={setNotifications}/>
+        ? <div id="home_page"><Home notifications={notifications} setNotifications={setNotifications}/></div>
+        : <div id="create_page"><Create id="create_page" notifications={notifications} setNotifications={setNotifications}/></div>
       }
       <Footer>
         <div class="navlink" id="home-button" onClick={(event) => {updatePage(event, HOME_TAB)}}>
