@@ -95,15 +95,8 @@ const EditModal = (props) => {
   }, []);
 
   function editNotification() {
-    const remove = props.notifications.indexOf(props.item);
-    const x = props.notifications.splice(remove, 1);
-    props.notifications.push(form);
-    props.setNotifications(props.notifications);
-
-    // const updatedData = (
-    //   <Item id={props.id} item={form} idx={props.idx} setNotifications={props.setNotifications} notifications={props.notifications}/>
-    // )
-    // document.getElementById(props.id).innerHTML = updatedData;
+    props.setNotifications(props.notifications.filter(item => item !== props.notifications[props.idx]))
+    props.setNotifications(prevNotif => [...prevNotif, form])
   }
 
   function selectColor(evt, color) {
