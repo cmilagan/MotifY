@@ -19,9 +19,7 @@ const Item = ({id, item, idx, setNotifications, notifications}) => {
   }, [notifications]);
 
   const handleRemoveItem = () => {
-    notifications.splice(idx, 1);
-    setNotifications(notifications);
-    document.getElementById(id).style.display = "none";
+    setNotifications(notifications.filter(item => item !== notifications[idx]))
   }
 
   return (
