@@ -95,9 +95,10 @@ const EditModal = (props) => {
   }, []);
 
   function editNotification() {
-    // delete notification and recreate it with new data
-    props.setNotifications(props.notifications.filter(item => item !== props.notifications[props.idx]))
-    props.setNotifications(prevNotif => [...prevNotif, form])
+    // update notification and recreate it with new data
+    let currNotif = [...props.notifications];
+    currNotif[props.idx] = form;
+    props.setNotifications(currNotif);
   }
 
   function selectColor(evt, color) {
