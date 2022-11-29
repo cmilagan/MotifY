@@ -14,7 +14,7 @@ document.body.parentNode.insertBefore(insertionPoint, document.body);
 !popupRoot && 
   ReactDOM.render(
     <React.StrictMode>
-      {/* <Notification /> */}
+      <Notification />
     </React.StrictMode>,
     insertionPoint
   );

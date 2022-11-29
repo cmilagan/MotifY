@@ -6,65 +6,10 @@ import "../App.css"
 import styled from "styled-components"
 import { localMode } from "../utils/constants";
 import { ShadowRoot } from "../utils/ShadowRoot";
-
-const Modal = styled.div`
-  z-index: 1000 !important;
-  border: 1px solid grey;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -12vh;
-  margin-left: -15vw;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 0.2);
-`
-
-const Header = styled.div`
-  height: 4vh;
-  background-color: #363636;
-  -moz-border-radius: 10px 10px 0 0;
-`
-
-const Title = styled.h1`
-  font-size: 1.5vh;
-  font-family: monospace;
-  float: left;
-  margin-left: 10px;
-  color: #eeeeee;
-`
-
-const StyledButton = styled.button`
-  height: 30px;
-  width: 30px;
-  border: none;
-  background-color: #363636;
-  float: right;
-  font-size: 20px;
-  text-shadow: 1px 1px 1px lightgrey;
-  color: white;
-  &:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
-`
-const StyledTextArea = styled.div`
-  color: dark grey;
-  background-color: #eeeeee;
-  height: 20vh;
-  width: 30vw;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: monospace;
-  font-size: 18px;
-`
+import NotificationModal from "../components/notification";
 
 const Notification = () => {
   const [notifications, setNotifications] = useState([]);
-  const [closed, setClosed] = useState(false);
   const url = window.location.href;
 
   // get Notifications if they're there
@@ -86,19 +31,12 @@ const Notification = () => {
   }, [notifications])
   return (
     <ShadowRoot>
-      {!closed &&
-        <Modal>
-          <Header>
-            <Title>
-              Hello
-            </Title>
-            <StyledButton onClick={() => {setClosed(true)}}>&#10006;</StyledButton>
-          </Header>
-          <StyledTextArea>
-            Hello
-          </StyledTextArea>
-        </Modal>      
-      }
+      <NotificationModal color={"red"} title={"hello"} message={"drink water"} />
+      {Array.isArray(notifications)
+        ? notifications.map((item, idx) => {
+            return <NotificationModal color={item["notification_color"]} title={item["notification_title"]} message={item["notification_message"]} />
+        })
+      : null}
     </ShadowRoot>
   );
 }
