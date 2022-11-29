@@ -115,10 +115,10 @@ const EditModal = (props) => {
     <div>
       <Modal>
         <Header>
-        <Title>
-          Edit Notification
-        </Title>
-        <StyledButton onClick={() => {props.setTrigger(false);}}>&#10006;</StyledButton>
+          <Title>
+            Edit Notification
+          </Title>
+          <StyledButton onClick={() => {props.setTrigger(false);}}>&#10006;</StyledButton>
         </Header>
         <StyledContainer>
           <Stack direction="column" margin="xs" spacing={2}>

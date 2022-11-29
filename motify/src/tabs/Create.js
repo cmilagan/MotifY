@@ -9,8 +9,12 @@ import Stack from "../components/layout";
 import ColorButton from "../components/color";
 import { PURPLE, BLUE, RED, GREEN, TEAL } from "../utils/constants";
 import { Input, Description, TimeSelecter, CheckBox, SubmitButton } from "../components/inputs";
+import ErrorModal from "../components/error";
 
 export const Create = (props) => {
+  const [open, setOpen] = useState(false);
+  const [type, setType] = useState("");
+  const [message, setMessage] = useState("");
   const [form, setForm] = useState({
     notification_color: null,
     notification_title: "",
@@ -37,16 +41,27 @@ export const Create = (props) => {
   function createNotification() {
     let data = form;
     if (data["notification_color"] == null) {
-      alert("You must select a color");
+      console.log("hello world")
+      setType("Error missing field");
+      setMessage("Please choose a notification colour");
+      setOpen(true);
     } else if (data["notification_title"] == "") {
-      alert("You must give your notification a title");
+      setType("Error missing field");
+      setMessage("Please give a title to your notification");
+      setOpen(true);
+    } else if (data["notification_description"] == "") { 
+      setType("Error missing field");
+      setMessage("Please describe your notification");
+      setOpen(true);    
     } else if (data["notification_time"] == "") {
-      alert("You must specify a time for your notification");
+      setType("Error missing field");
+      setMessage("Please select a time");
+      setOpen(true);
     } else {
-      console.log("I get here");
-      console.log(data);
       props.setNotifications(prevNotif => [...prevNotif, data])
-      alert("Notification successfully created")
+      setType("Success");
+      setMessage("Notification created");
+      setOpen(true);
     }
   }
   function selectColor(evt, color) {
@@ -110,6 +125,7 @@ export const Create = (props) => {
           <SubmitButton onClick={() => {createNotification()}}>Submit</SubmitButton>
         </Stack>
       </Container>
+      <ErrorModal type={type} message={message} trigger={open} setTrigger={setOpen} />
     </div>
   )
 }
